@@ -15,13 +15,16 @@ return {
   -- treesitter, mason, etc.
   { import = "lazyvim.plugins.extras.lang.json" },
 
+  -- add lang extras
+  { import = "lazyvim.plugins.extras.lang.go" },
+
   -- add servers to lspconfig
   {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
-      -- disable automatical format on save
-      autoformat = false,
+      -- selectively disable autoformat in config/autocmds
+      -- autoformat = false,
       ---@type lspconfig.options
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
@@ -33,7 +36,9 @@ return {
             "--rules_config_search",
             -- "--rules=-no-tabs",
           },
-          root_dir = function () return vim.loop.cwd() end
+          root_dir = function()
+            return vim.loop.cwd()
+          end,
         },
       },
       -- you can do any additional lsp server setup here
@@ -57,9 +62,18 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       -- mypy and ruff installation somehow wouldn't work if they were added to opts.server of nvim-lspconfig
-      table.insert(opts.ensure_installed, "black")
-      table.insert(opts.ensure_installed, "mypy")
-      table.insert(opts.ensure_installed, "ruff")
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, {
+        -- Python
+        "black",
+        "mypy",
+        "ruff",
+        -- Go
+        "gomodifytags",
+        "impl",
+        "gofumpt",
+        "goimports-reviser",
+      })
     end,
   },
 
@@ -68,11 +82,17 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     -- ft = { "python" },
     opts = function(_, opts)
-      local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.diagnostics.mypy)
-      table.insert(opts.sources, nls.builtins.diagnostics.ruff)
-      table.insert(opts.sources, nls.builtins.formatting.black)
-      table.insert(opts.sources, nls.builtins.formatting.verible_verilog_format)
+      if type(opts.sources) == "table" then
+        local nls = require("null-ls")
+        vim.list_extend(opts.sources, {
+          -- Python
+          nls.builtins.diagnostics.mypy,
+          nls.builtins.diagnostics.ruff,
+          nls.builtins.formatting.black,
+          -- SystemVerilog
+          nls.builtins.formatting.verible_verilog_format,
+        })
+      end
     end,
   },
 }
