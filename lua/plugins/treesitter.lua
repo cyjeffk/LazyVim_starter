@@ -25,7 +25,7 @@ return {
         "verilog",
       })
 
-      opts.context_commentstring = { enable = true, }
+      opts.context_commentstring = { enable = true }
     end,
   },
 
