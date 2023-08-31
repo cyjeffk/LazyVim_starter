@@ -3,6 +3,9 @@
 -- Add any additional options here
 local opt = vim.opt
 
+-- For Windows GUI
+-- opt.guifont = "JetBrainsMono Nerd Font:h10:Consolas"
+
 opt.title = true
 -- opt.titlestring = [[%f %h%m%r%w %{v:progname} (%{tabpagenr()} of %{tabpagenr('$')})]]
 -- opt.scrolloff = 8 -- Lines of context
