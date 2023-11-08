@@ -13,10 +13,10 @@ return {
 
   -- for json, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason, etc.
-  { import = "lazyvim.plugins.extras.lang.json" },
+  -- { import = "lazyvim.plugins.extras.lang.json" },
 
   -- add lang extras
-  { import = "lazyvim.plugins.extras.lang.go" },
+  -- { import = "lazyvim.plugins.extras.lang.go" },
 
   -- add servers to lspconfig
   {
@@ -28,7 +28,7 @@ return {
       ---@type lspconfig.options
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {},
+        -- pyright = {},
         verible = {
           cmd = {
             "verible-verilog-ls",
@@ -65,34 +65,35 @@ return {
       opts.ensure_installed = opts.ensure_installed or {}
       vim.list_extend(opts.ensure_installed, {
         -- Python
-        "black",
-        "mypy",
-        "ruff",
+        -- "black",
+        -- "mypy",
+        -- "ruff",
         -- Go
-        "gomodifytags",
-        "impl",
-        "gofumpt",
-        "goimports-reviser",
+        -- "gomodifytags",
+        -- "impl",
+        -- "gofumpt",
+        -- "goimports-reviser",
       })
     end,
   },
 
   -- formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    -- ft = { "python" },
-    opts = function(_, opts)
-      if type(opts.sources) == "table" then
-        local nls = require("null-ls")
-        vim.list_extend(opts.sources, {
-          -- Python
-          nls.builtins.diagnostics.mypy,
-          nls.builtins.diagnostics.ruff,
-          nls.builtins.formatting.black,
-          -- SystemVerilog
-          nls.builtins.formatting.verible_verilog_format,
-        })
-      end
-    end,
-  },
+  -- {
+  --   -- "jose-elias-alvarez/null-ls.nvim",
+  --   "nvimtools/none-ls.nvim",
+  --   -- ft = { "python" },
+  --   opts = function(_, opts)
+  --     if type(opts.sources) == "table" then
+  --       local nls = require("null-ls")
+  --       vim.list_extend(opts.sources, {
+  --         -- Python
+  --         nls.builtins.diagnostics.mypy,
+  --         nls.builtins.diagnostics.ruff,
+  --         nls.builtins.formatting.black,
+  --         -- SystemVerilog
+  --         nls.builtins.formatting.verible_verilog_format,
+  --       })
+  --     end
+  --   end,
+  -- },
 }

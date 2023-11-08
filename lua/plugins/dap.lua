@@ -1,5 +1,5 @@
 -- stylua: ignore
-if false then return {} end
+if true then return {} end
 
 -- every spec file under config.plugins will be loaded automatically by lazy.nvim
 --
