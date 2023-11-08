@@ -21,6 +21,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "cpp",
         -- "help",
+        "jsonnet",
         "perl",
         "verilog",
       })
