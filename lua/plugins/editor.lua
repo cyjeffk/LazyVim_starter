@@ -32,16 +32,16 @@ return {
   },
 
   -- add telescope-fzf-native
-  {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
-    },
-  },
+  -- {
+  --   "telescope.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope-fzf-native.nvim",
+  --     build = "make",
+  --     config = function()
+  --       require("telescope").load_extension("fzf")
+  --     end,
+  --   },
+  -- },
 
   -- Detect tabstop and shiftwidth automatically
   { "tpope/vim-sleuth", event = "VeryLazy" },
