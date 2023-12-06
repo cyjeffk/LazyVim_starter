@@ -13,9 +13,6 @@ return {
   -- If you'd rather extend the default config, use the code below instead:
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-    },
     opts = function(_, opts)
       -- add more treesitter buffers
       vim.list_extend(opts.ensure_installed, {
@@ -25,8 +22,6 @@ return {
         "perl",
         "verilog",
       })
-
-      opts.context_commentstring = { enable = true }
     end,
   },
 
