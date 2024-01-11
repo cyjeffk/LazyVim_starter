@@ -36,4 +36,7 @@ return {
       },
     },
   },
+
+  -- disable indent-blankline.nvim for now to avoid unknown error
+  { "lukas-reineke/indent-blankline.nvim", enabled = false },
 }
