@@ -73,6 +73,9 @@ return {
         -- "impl",
         -- "gofumpt",
         -- "goimports-reviser",
+        -- Bash
+        "bash-language-server",
+        "shellcheck",
       })
     end,
   },
