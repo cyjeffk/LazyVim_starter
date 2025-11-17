@@ -59,7 +59,7 @@ return {
   -- cmdline tools and lsp servers
   {
 
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       -- mypy and ruff installation somehow wouldn't work if they were added to opts.server of nvim-lspconfig
       opts.ensure_installed = opts.ensure_installed or {}

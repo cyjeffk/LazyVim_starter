@@ -20,8 +20,8 @@ return {
         -- "help",
         "jsonnet",
         "perl",
-        "verilog",
       })
+      opts.ignore_install = { "verilog" }
     end,
   },
 

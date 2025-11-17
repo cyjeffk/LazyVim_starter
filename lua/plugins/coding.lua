@@ -10,7 +10,7 @@ if false then return {} end
 return {
   -- comments
   -- disable mini.comment
-  { "echasnovski/mini.comment", enabled = false },
+  { "nvim-mini/mini.comment", enabled = false },
   -- add Comment.nvim
   -- { 'numToStr/Comment.nvim', opts = {} },
   { import = "user_specs.comment" },
