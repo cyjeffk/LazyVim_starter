@@ -8,13 +8,9 @@ if false then return {} end
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  -- add hardhacker
-  -- { import = "user_specs.hardhacker_theme" },
-
   -- elevate priority for main colorscheme
   {
     "catppuccin",
-    -- "hardhacker",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     opts = {
@@ -29,7 +25,6 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
-      -- colorscheme = "hardhacker",
       -- colorscheme = "tokyonight",
     },
   },

@@ -8,9 +8,6 @@ if false then return {} end
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  -- add verible-specific spec if directly using lazy to config LSP
-  -- { import = "user_specs.verible" },
-
   -- for json, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason, etc.
   -- { import = "lazyvim.plugins.extras.lang.json" },
