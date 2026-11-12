@@ -7,6 +7,16 @@ if false then return {} end
 -- * add extra plugins
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
+
+-- Verible lint rules in the home directory. os_homedir() works on Linux and
+-- Windows (os.getenv("HOME") is unset on Windows). The flag is only passed when
+-- the file exists, so machines without it still get a working server.
+local verible_cmd = { "verible-verilog-ls" }
+local verible_rules = vim.fs.joinpath(vim.uv.os_homedir(), "rules.verible_lint")
+if vim.uv.fs_stat(verible_rules) then
+  vim.list_extend(verible_cmd, { "--rules_config", verible_rules })
+end
+
 return {
   -- for json, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason, etc.
@@ -27,15 +37,8 @@ return {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         -- pyright = {},
         verible = {
-          -- local home_dir = os.getenv("HOME")
-          cmd = {
-            "verible-verilog-ls",
-            -- add flags below
-            -- "--rules_config_search",
-            "--rules_config",
-            os.getenv("HOME") .. "/rules.verible_lint",
-            -- "--rules=-no-tabs",
-          },
+          -- more flags: "--rules_config_search", "--rules=-no-tabs"
+          cmd = verible_cmd,
           -- root_dir = function()
           --   return vim.loop.cwd()
           -- end,
