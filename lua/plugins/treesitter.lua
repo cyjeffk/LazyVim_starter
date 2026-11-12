@@ -21,7 +21,6 @@ return {
         "jsonnet",
         -- "perl",
       })
-      opts.ignore_install = { "systemverilog" }
     end,
     -- enabled = false,
   },
