@@ -3,15 +3,16 @@
 -- Add any additional options here
 local opt = vim.opt
 
-if vim.g.neovide then
-  -- vim.g.neovide_cursor_trail_legnth = 0
-  vim.g.neovide_cursor_animation_length = 0
-  vim.o.guifont = "JetBrainsMono Nerd Font,Consolas:h10"
-end
+-- if vim.g.neovide then
+--   -- vim.g.neovide_cursor_trail_legnth = 0
+--   vim.g.neovide_cursor_animation_length = 0
+--   vim.o.guifont = "JetBrainsMono Nerd Font,Consolas:h10"
+  vim.o.guifont = "CaskaydiaMono NFP SemiLight,DejaVu Sans Mono:h12"
+-- end
 
-if vim.g.nvy then
-  opt.guifont = "JetBrainsMono Nerd Font:h10:Consolas"
-end
+-- if vim.g.nvy then
+--   opt.guifont = "JetBrainsMono Nerd Font:h10:Consolas"
+-- end
 
 opt.title = true
 -- opt.titlestring = [[%f %h%m%r%w %{v:progname} (%{tabpagenr()} of %{tabpagenr('$')})]]

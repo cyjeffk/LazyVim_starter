@@ -14,7 +14,4 @@ return {
   -- add Comment.nvim
   -- { 'numToStr/Comment.nvim', opts = {} },
   { import = "user_specs.comment" },
-
-  -- add chatgpt.nvim
-  -- { import = "user_specs.chatgpt_nvim" },
 }

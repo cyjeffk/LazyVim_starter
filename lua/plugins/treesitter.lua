@@ -16,13 +16,14 @@ return {
     opts = function(_, opts)
       -- add more treesitter buffers
       vim.list_extend(opts.ensure_installed, {
-        "cpp",
+        -- "cpp",
         -- "help",
         "jsonnet",
-        "perl",
+        -- "perl",
       })
-      opts.ignore_install = { "verilog" }
+      opts.ignore_install = { "systemverilog" }
     end,
+    -- enabled = false,
   },
 
   -- Show the context of the currently visible buffer contents

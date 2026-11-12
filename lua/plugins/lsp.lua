@@ -30,15 +30,18 @@ return {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         -- pyright = {},
         verible = {
+          -- local home_dir = os.getenv("HOME")
           cmd = {
             "verible-verilog-ls",
             -- add flags below
-            "--rules_config_search",
+            -- "--rules_config_search",
+            "--rules_config",
+            os.getenv("HOME") .. "/rules.verible_lint",
             -- "--rules=-no-tabs",
           },
-          root_dir = function()
-            return vim.loop.cwd()
-          end,
+          -- root_dir = function()
+          --   return vim.loop.cwd()
+          -- end,
         },
       },
       -- you can do any additional lsp server setup here
