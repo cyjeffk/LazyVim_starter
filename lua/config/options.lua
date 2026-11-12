@@ -25,6 +25,3 @@ opt.wrap = true -- Enable line wrap
 --   vim.opt_local.breakindent = true -- Enable break indent
 --   vim.opt_local.wrap = true -- Enable line wrap
 -- end
-
--- nvim-ts-context-commentstring
-vim.g.skip_ts_context_commentstring_module = true
