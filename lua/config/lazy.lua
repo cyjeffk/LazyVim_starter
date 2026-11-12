@@ -30,7 +30,8 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "catppuccin", "habamax" } },
+  rocks = { enabled = false }, -- no plugin needs luarocks; avoids hererocks build + health errors
   checker = { enabled = false }, -- disabled: background git fetches hammer NFS; run :Lazy update manually
   performance = {
     rtp = {
