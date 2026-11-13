@@ -12,6 +12,8 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        -- bash-language-server; mason installs it, and it runs shellcheck (below)
+        bashls = {},
         verible = {
           -- more flags: "--rules_config_search", "--rules=-no-tabs"
           cmd = verible_cmd,
@@ -20,15 +22,6 @@ return {
     },
   },
 
-  -- cmdline tools and lsp servers
-  {
-    "mason-org/mason.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, {
-        "bash-language-server",
-        "shellcheck",
-      })
-    end,
-  },
+  -- extra mason tools (appended to LazyVim's list via opts_extend)
+  { "mason-org/mason.nvim", opts = { ensure_installed = { "shellcheck" } } },
 }

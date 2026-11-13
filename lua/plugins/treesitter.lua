@@ -1,11 +1,5 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      -- add more treesitter parsers
-      vim.list_extend(opts.ensure_installed, {
-        "jsonnet",
-      })
-    end,
-  },
+  -- Extra parsers. LazyVim declares opts_extend = { "ensure_installed" }, so
+  -- this list is appended to LazyVim's instead of replacing it.
+  { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = { "jsonnet" } } },
 }
