@@ -9,11 +9,6 @@ vim.o.guifont = "CaskaydiaMono NFP SemiLight,DejaVu Sans Mono:h12"
 opt.title = true
 -- opt.titlestring = [[%f %h%m%r%w %{v:progname} (%{tabpagenr()} of %{tabpagenr('$')})]]
 -- opt.scrolloff = 8 -- Lines of context
--- opt.colorcolumn = '100'
 
 opt.breakindent = true -- Enable break indent
 opt.wrap = true -- Enable line wrap
--- if vim.bo.filetype == "" then
---   vim.opt_local.breakindent = true -- Enable break indent
---   vim.opt_local.wrap = true -- Enable line wrap
--- end
