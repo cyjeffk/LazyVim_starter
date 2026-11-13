@@ -1,5 +1,5 @@
-vim.opt_local.textwidth = 100
-vim.opt_local.colorcolumn = '+1' -- 100 is SystemVerilog standard textwidth
-vim.opt_local.breakindent = true -- Enable break indent
-vim.opt_local.wrap = true -- Enable line wrap
-vim.opt_local.commentstring = "// %s" -- Set commentstring
+-- Also used for verilog (see verilog.lua). 'commentstring' ("// %s") comes from
+-- Neovim's own ftplugin; 'wrap' and 'breakindent' are set globally in options.lua.
+vim.opt_local.textwidth = 100 -- SystemVerilog standard line length
+vim.opt_local.colorcolumn = "+1" -- marker at column 101
+vim.b.autoformat = false -- no format-on-save (verible LSP would reformat)
