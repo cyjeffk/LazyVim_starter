@@ -7,3 +7,6 @@ vim.opt_local.colorcolumn = "+1" -- marker at column 101
 vim.opt_local.tabstop = 8
 vim.opt_local.foldnestmax = 2 -- indent folds: module body and one level inside (as in Vim)
 vim.b.autoformat = false -- no format-on-save (verible LSP would reformat)
+
+-- Emacs verilog-mode AUTOs: \e expand, \k kill, \d diff (lua/verilog_auto.lua)
+require("verilog_auto").attach(0)
