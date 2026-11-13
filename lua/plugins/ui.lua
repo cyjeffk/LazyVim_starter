@@ -1,3 +1,9 @@
+-- Total line count for the statusline. A function, because a string like
+-- "vim.fn.line('$')" is recompiled by lualine with loadstring on every redraw.
+local function line_count()
+  return tostring(vim.fn.line("$"))
+end
+
 return {
   -- bufferline
   {
@@ -16,11 +22,10 @@ return {
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
     opts = {
       sections = {
         lualine_y = {
-          { "vim.fn.line('$')", separator = " ", padding = { left = 1, right = 0 } },
+          { line_count, separator = " ", padding = { left = 1, right = 0 } },
           { "progress", separator = " ", padding = { left = 0, right = 0 } },
           { "location", padding = { left = 0, right = 1 } },
         },
